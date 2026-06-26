@@ -130,4 +130,19 @@ def main():
     network = load_network()
     contract = load_contract()
 
-    request = InteractionRe
+    request = InteractionRequest(
+        network,
+        contract
+    ).build()
+
+    Validator.check(request)
+
+    Reporter.display(request)
+
+    print("Status: Ready for review")
+    print("No signing operation is implemented.")
+
+
+if __name__ == "__main__":
+    main()
+```
